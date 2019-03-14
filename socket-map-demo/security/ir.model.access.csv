@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vehicle_manage_vehicle_user,vehicle.manage.vehicle,model_vehicle_manage_vehicle,vehicle_manage.group_user,1,0,0,0
+access_vehicle_manage_gps_user,vehicle.manage.gps,model_vehicle_manage_gps,vehicle_manage.group_user,1,0,0,0
+access_vehicle_manage_vehicle_admin,vehicle.manage.vehicle,model_vehicle_manage_vehicle,vehicle_manage.group_admin,1,1,1,1
+access_vehicle_manage_gps_admin,vehicle.manage.gps,model_vehicle_manage_gps,vehicle_manage.group_admin,1,1,1,1
+access_vehicle_manage_web_socket_config_admin,vehicle.manage.web.socket.config,model_vehicle_manage_web_socket_config,vehicle_manage.group_admin,1,1,1,1

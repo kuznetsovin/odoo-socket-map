@@ -1,0 +1,91 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="vehicle_manage_assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/vehicle_manage/static/src/js/map.js"/>
+                <script type="text/javascript" src="/vehicle_manage/static/lib/ol/ol.js"/>
+                <link rel="stylesheet" href="/vehicle_manage/static/src/css/map.css"/>
+                <link rel="stylesheet" href="/vehicle_manage/static/lib/ol/ol.css"/>
+            </xpath>
+        </template>
+
+        <!-- vehicle -->
+
+        <record model="ir.ui.view" id="vehicle_tree">
+            <field name="name">Vehicle list</field>
+            <field name="model">vehicle.manage.vehicle</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                    <field name="gps_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="vehicle_action_window">
+            <field name="name">Vehicle window</field>
+            <field name="res_model">vehicle.manage.vehicle</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- gps -->
+
+        <record model="ir.ui.view" id="gps_tree">
+            <field name="name">Gps list</field>
+            <field name="model">vehicle.manage.gps</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="gps_action_window">
+            <field name="name">Gps window</field>
+            <field name="res_model">vehicle.manage.gps</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- websocket config -->
+
+        <record model="ir.ui.view" id="broker_server_config_tree">
+            <field name="name">Websocket config</field>
+            <field name="model">vehicle.manage.web.socket.config</field>
+            <field name="arch" type="xml">
+                <tree editable="top" create="false">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="broker_server_config_action_window">
+            <field name="name">Websocket config window</field>
+            <field name="res_model">vehicle.manage.web.socket.config</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!-- map widget -->
+        <record id="map_action_window" model="ir.actions.client">
+            <field name="name">Map window</field>
+            <field name="tag">map</field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem name="Map" id="menu_map_root" sequence="30" action="vehicle_manage.map_action_window"/>
+        <menuitem name="Registry" id="menu_registry_root" sequence="50"/>
+
+        <!-- menu categories -->
+        <menuitem name="Registry" id="registry_menu" parent="vehicle_manage.menu_registry_root"/>
+        <menuitem name="Configuration" id="config_menu" parent="vehicle_manage.menu_registry_root"/>
+
+        <!-- actions -->
+        <menuitem name="Vehicle" id="vehicle_menu" parent="vehicle_manage.registry_menu"
+                  action="vehicle_manage.vehicle_action_window"/>
+        <menuitem name="Gps" id="gps_menu" parent="vehicle_manage.registry_menu"
+                  action="vehicle_manage.gps_action_window"/>
+
+        <menuitem name="Broker" id="broker_server_config_menu" parent="vehicle_manage.config_menu"
+                  action="vehicle_manage.broker_server_config_action_window"/>
+        -->
+    </data>
+</odoo>

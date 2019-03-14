@@ -1,0 +1,25 @@
+<odoo>
+    <data noupdate="1">
+        <record id="gps0" model="vehicle.manage.gps">
+            <field name="name">30457412</field>
+        </record>
+
+        <record id="gps1" model="vehicle.manage.gps">
+            <field name="name">32070971</field>
+        </record>
+
+        <record id="vehicle0" model="vehicle.manage.vehicle">
+            <field name="name">AA777A93</field>
+            <field name="gps_id" ref="vehicle_manage.gps0"/>
+        </record>
+
+        <record id="vehicle1" model="vehicle.manage.vehicle">
+            <field name="name">BB111A750</field>
+        </record>
+
+        <record id="broker0" model="vehicle.manage.web.socket.config">
+            <field name="name">ws://localhost:8081/ws</field>
+        </record>
+
+    </data>
+</odoo>
